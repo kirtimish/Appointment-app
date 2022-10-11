@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Booking Appointment</title>
+        <title>App</title>
     </head>
     <body>
-        <div id="app"></div>
-        <h1>Appointment Booking App</h1>
-        <form onsubmit="storedatainLocalstorage(event)">
-          <input type="text" name="name" id="name" required />
-          <input type="email" name="email" id="email" required />
-          <input type="phnNumber" name="phnNumber" id="phnNumber" required />
-          <button>submit</button>
-        </form>
-    <ul id="listofUsers"></ul>
+            <h1>Appontment Booking App</h1>
+            <form id="my-form">
+              <div class="msg"></div>
+              <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+              </div>
+              <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email">
+              </div>
+              <input class="btn" type="submit" value="Submit">
+            </form>
+      
+            <ul id="users"></ul>
     <script src="index.js">
          
     </script>
