@@ -8,36 +8,42 @@ myform.addEventListener("submit", onSubmit);
 
 function onSubmit(e) {
     e.preventDefault();
-
-    if(nameInput.value === "" || emailInput.value === "") {
-        msg.classList.add("error");
-        msg.innerHTML = "Please Enter All Fields";
-        setTimeout(() => msg.remove(), 4000);
-    } else {
        
         const userDetails = {
             Name: nameInput.value,
             Email: emailInput.value
         }
 
-       nameInput.value = "";
-       emailInput.value = ""; 
+        axios.post('https://crudcrud.com/api/655763491bef46a3838756764e195b7d/appointmentdata',userDetails)
+        .then((res) => {
+            showUsersOnScreen(res.data);
+            // console.log(res);
+        })
+        .catch((res) => {
+            console.log(res);
+        })
+    //    nameInput.value = "";
+    //    emailInput.value = ""; 
 
-        let seri = JSON.stringify(userDetails);
+    //     let seri = JSON.stringify(userDetails);
 
-        localStorage.setItem(userDetails.Email , seri);
+    //     localStorage.setItem(userDetails.Email , seri);
 
-        showUsersOnScreen(userDetails);
-    }
+    //     showUsersOnScreen(userDetails);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-Object.keys(localStorage).forEach((key) => {
 
-    const stringifiedDetails = localStorage.getItem(key);
-    const details = JSON.parse(stringifiedDetails);
-    showUsersOnScreen(details);
-})
+// axios.get('https://crudcrud.com/api/655763491bef46a3838756764e195b7d/appointmentdata')
+// .then((res) => {
+//     console.log(res.data);
+// })
+// Object.keys(localStorage).forEach((key) => {
+
+//     const stringifiedDetails = localStorage.getItem(key);
+//     const details = JSON.parse(stringifiedDetails);
+//     showUsersOnScreen(details);
+// })
 
 })
 
