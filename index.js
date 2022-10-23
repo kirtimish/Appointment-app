@@ -34,10 +34,16 @@ function onSubmit(e) {
 
 window.addEventListener("DOMContentLoaded", () => {
 
-// axios.get('https://crudcrud.com/api/655763491bef46a3838756764e195b7d/appointmentdata')
-// .then((res) => {
-//     console.log(res.data);
-// })
+axios.get('https://crudcrud.com/api/655763491bef46a3838756764e195b7d/appointmentdata')
+.then((res) => {
+    // console.log(res.data);
+    for(var i=0;i<res.data.length;i++){
+        showUsersOnScreen(res.data[i]);
+    }
+})
+.catch((err) => {
+    console.log(err)
+})
 // Object.keys(localStorage).forEach((key) => {
 
 //     const stringifiedDetails = localStorage.getItem(key);
